@@ -14,7 +14,7 @@ $twicon = new Twicon();
 $twicon->out($twitterId, $size);
 ```
 
-[example](http://github.com/teriyakisan/twicon/blob/master/examples/images.php)
+[example](https://github.com/teriyakisan/twicon/blob/master/examples/image.php)
 
 ### imgタグに埋め込む
 
@@ -24,7 +24,7 @@ $src = $twicon->getIconUrl($id, $size);
 echo '<img src="' . $src . '" alt="" />';
 ```
 
-[example](http://github.com/teriyakisan/twicon/blob/master/examples/html.php)
+[example](https://github.com/teriyakisan/twicon/blob/master/examples/html.php)
 
 Twicon
 ----
