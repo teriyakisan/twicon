@@ -3,7 +3,7 @@ twicon
 
 Twitterユーザアイコンの画像URLを取得するPHPライブラリです。
 
-API経由で画像URLを取得して、memcachedにキャッシュするのでAPIのアクセス制限を回避することができます。
+API経由で取得した画像URLをmemcachedにキャッシュするので、APIのアクセス制限を回避することができます。
 
 使い方
 -----
