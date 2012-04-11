@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twicon by teriyakisan</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/teriyakisan/twicon">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/teriyakisan/twicon/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/teriyakisan/twicon/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Twicon</h1>
+          <p>Get Twitter User Icon Image URL library written in PHP.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/teriyakisan">teriyakisan</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>twicon</h1>
+
+<p>Get Twitter User Icon Image URL library written in PHP.</p>
+
+<p>You can work around API limitation get the image URL via the API, because it caches to memcached.</p>
+
+<h2>Usage</h2>
+
+<h3>redirect directly</h3>
+
+<div class="highlight">
+<pre><span class="x">$twicon = new Twicon();</span>
+<span class="x">$twicon-&gt;out($twitterId, $size);</span>
+</pre>
+</div>
+
+
+<p><a href="https://github.com/teriyakisan/twicon/blob/master/examples/image.php">example</a></p>
+
+<h3>embed url in image source</h3>
+
+<div class="highlight">
+<pre><span class="x">$twicon = new Twicon();</span>
+<span class="x">$src = $twicon-&gt;getIconUrl($id, $size);</span>
+<span class="x">echo '&lt;img src="' . $src . '" alt="" /&gt;';</span>
+</pre>
+</div>
+
+
+<p><a href="https://github.com/teriyakisan/twicon/blob/master/examples/html.php">example</a></p>
+
+<h2>Twicon</h2>
+
+<h3>Twicon::out</h3>
+
+<pre><code>void Twicon:out ( int $id [,int $size = 0 ] )
+</code></pre>
+
+<p>Reedirect pure Twitter icon URL directly.</p>
+
+<p>If referer page is SSL, redirect SSL icon url.</p>
+
+<h4>Parameters</h4>
+
+<ul>
+<li>
+<p>id</p>
+
+<p>Twitter User ID</p>
+</li>
+<li>
+<p>size</p>
+
+<p>0: original
+1: mini
+2: normal
+3: bigger</p>
+</li>
+</ul><h4>Return Values</h4>
+
+<p>Returns none on success or dummy gif binary on failure.</p>
+
+<h3>Twicon::getIconUrl</h3>
+
+<pre><code>mixed Twicon::getIconUrl ( int $id [,int $size = 0 [, bool $sslFlg = false ]] )
+</code></pre>
+
+<p>Returns Twitter icon URL string.</p>
+
+<h4>Parameters</h4>
+
+<ul>
+<li>
+<p>id</p>
+
+<p>Twitter user ID</p>
+</li>
+<li>
+<p>size</p>
+
+<p>0: original
+1: mini
+2: normal
+3: bigger</p>
+</li>
+<li>
+<p>sslFlg</p>
+
+<p>If you specify true, returns ssl url.</p>
+</li>
+</ul><h4>Return Values</h4>
+
+<p>Returns Twitter icon URL on success or FALSE on failure.</p>
+
+<h3>Twicon::getMemcachedStatus</h3>
+
+<pre><code>bool Twicon::getMemcachedStatus ()
+</code></pre>
+
+<p>Returns connect memcached server status.</p>
+
+<h4>Return Values</h4>
+
+<p>Returns TRUE on success or FALSE on failure.</p>
+
+<h2>Configuration</h2>
+
+<p><code>config/memcached.ini</code> is optional memcached settings file(If it's none, using default settings).</p>
+
+<p>You need to write settings in <code>memcached</code> section.</p>
+
+<ul>
+<li>
+<p>host</p>
+
+<p>memcached server host</p>
+</li>
+<li>
+<p>port</p>
+
+<p>memcached server port</p>
+</li>
+<li>
+<p>cache_expire_sec</p>
+
+<p>cache expire(second)</p>
+</li>
+<li>
+<p>cache_prefix</p>
+
+<p>data key prefix</p>
+</li>
+</ul><h2>Dependent Library / Module</h2>
+
+<ul>
+<li><a href="http://memcached.org/">memecached</a></li>
+<li><a href="http://php.net/manual/en/book.memcache.php">Memcache (PHP extension)</a></li>
+</ul><h2>Tests</h2>
+
+<p>The tests can be executed by using this command from the base directory.</p>
+
+<pre><code>phpunit --stderr --bootstrap tests/bootstrap.php tests/tests.php
+</code></pre>
+
+<h2>Licence</h2>
+
+<p>Copyright (c) 2012 Hiroki Tanaka</p>
+
+<p>The MIT License (MIT) <a href="http://www.opensource.org/licenses/MIT">http://www.opensource.org/licenses/MIT</a></p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-1811849-7");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
