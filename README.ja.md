@@ -110,7 +110,7 @@ memcachedサーバの接続状態を返します。
 
     データキーの接頭辞
 
-必要ライブラリ/モジュール
+必要ライブラリ / モジュール
 ----
 - [memecached](http://memcached.org/)
 - [Memcache (PHP extension)](http://php.net/manual/ja/book.memcached.php)
