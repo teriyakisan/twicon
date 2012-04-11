@@ -2,6 +2,7 @@ twicon
 ==========================
 
 Twitterユーザアイコンの画像URLを取得するPHPライブラリです。
+
 API経由で画像URLを取得して、memcachedにキャッシュするのでAPIのアクセス制限を回避することができます。
 
 使い方
@@ -32,13 +33,14 @@ Twicon
     mixed Twicon:out ( int $id [,int $size = 0 ] )
 
 TwitterのユーザアイコンURLに直接リダイレクトします。
+
 呼び出しページがSSLの場合にはSSLのアイコンURLへリダイレクトします。
 
 #### パラメータ
 
 * id
 
-    Twitter User ID
+    TwitterユーザID
 
 * size
 
@@ -89,6 +91,7 @@ memcachedサーバの接続状態を返します。
 設定
 ----
 `config/memcached.ini`は追加の設定ファイルです（ない場合はデフォルト設定で動きます）。
+
 設定は`memcached`セクションに記述する必要があります。
 
 * host
@@ -107,7 +110,7 @@ memcachedサーバの接続状態を返します。
 
     データキーの接頭辞
 
-必要ライブラリ/モジュール
+必要ライブラリ / モジュール
 ----
 - [memecached](http://memcached.org/)
 - [Memcache (PHP extension)](http://php.net/manual/ja/book.memcached.php)
@@ -118,8 +121,8 @@ memcachedサーバの接続状態を返します。
 
     phpunit --stderr --bootstrap tests/bootstrap.php tests/tests.php
 
-ライセンス
-----
+Licence
+-----
 Copyright (c) 2012 Hiroki Tanaka
 
 The MIT License (MIT) [http://www.opensource.org/licenses/MIT](http://www.opensource.org/licenses/MIT)

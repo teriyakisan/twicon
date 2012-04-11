@@ -2,6 +2,7 @@ twicon
 ==========================
 
 Get Twitter User Icon Image URL library written in PHP.
+
 You can work around API limitation get the image URL via the API, because it caches to memcached.
 
 Usage
@@ -32,6 +33,7 @@ Twicon
     void Twicon:out ( int $id [,int $size = 0 ] )
 
 Reedirect pure Twitter icon URL directly.
+
 If referer page is SSL, redirect SSL icon url.
 
 #### Parameters
@@ -92,6 +94,7 @@ Returns TRUE on success or FALSE on failure.
 Configuration
 ----
 `config/memcached.ini` is optional memcached settings file(If it's none, using default settings).
+
 You need to write settings in `memcached` section.
 
 * host
