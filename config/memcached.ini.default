@@ -1,0 +1,5 @@
+[memcached]
+host = 'localhost'
+port = 11211
+cache_expire_sec = 21600
+cache_prefix = 'twicon_'
