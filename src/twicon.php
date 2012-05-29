@@ -2,7 +2,7 @@
 /**
  * twicon
  * --
- * get & caache twitter icon image path
+ * get & cache twitter icon image path
  *
  * @version 1.0
  * @author  Hiroki Tanaka
